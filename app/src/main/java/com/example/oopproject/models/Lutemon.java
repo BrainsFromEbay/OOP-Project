@@ -98,13 +98,12 @@ public abstract class Lutemon {
     // XP and levels
     public void addExperience(int xp) {
         this.experience += xp;
-        if (experience >= 100) {
-            experience -= 100;
+        if (experience >= 5) {
+            experience -= 5;
             levelUp();
         }
     }
 
-    // TODO: make something cool here :)
     public void levelUp() {
         level ++;
         attack += 1;
