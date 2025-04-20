@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Create Lutemon"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="409dp"
+        android:layout_height="636dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6">
+
+        <EditText
+            android:id="@+id/editTextName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginRight="32dp"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="Lutemon name"
+            android:inputType="text" />
+
+        <RadioGroup
+            android:id="@+id/radioGroupType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="16dp">
+
+            <RadioButton
+                android:id="@+id/radioButtonOrange"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Orange" />
+
+            <RadioButton
+                android:id="@+id/radioButtonBlack"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Black" />
+
+            <RadioButton
+                android:id="@+id/radioButtonWhite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="White" />
+
+            <RadioButton
+                android:id="@+id/radioButtonGreen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Green" />
+
+            <RadioButton
+                android:id="@+id/radioButtonPink"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pink" />
+
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/textViewAblity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16dp"
+            android:layout_marginTop="16dp"
+            android:textStyle="bold"
+            android:text="Ability:" />
+
+        <TextView
+            android:id="@+id/textViewAbilityDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16dp"
+            android:padding="8dp"
+            android:text="The Lutemon's ability description will be here" />
+
+        <Button
+            android:id="@+id/btnCreateLutemon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Create Lutemon" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
