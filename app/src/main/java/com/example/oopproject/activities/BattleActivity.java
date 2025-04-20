@@ -49,6 +49,7 @@ public class BattleActivity extends AppCompatActivity{
         textViewBattleLog = findViewById(R.id.textViewBattleLog);
         textViewBattleLog.setMovementMethod(new ScrollingMovementMethod());
 
+        // Get all lutemons in battle
         ArrayList<Lutemon> lutemonsInBattle = new ArrayList<>();
         for (Lutemon lutemon : storage.getAllLutemons().values()) {
             if (lutemon.getLocation() == Location.BATTLE) {
@@ -56,6 +57,7 @@ public class BattleActivity extends AppCompatActivity{
             }
         }
 
+        // Check if there are at least 2 lutemons in battle
         if (lutemonsInBattle.size() >= 2) {
             lutemonUp = lutemonsInBattle.get(0);
             lutemonDown = lutemonsInBattle.get(1);
@@ -68,6 +70,7 @@ public class BattleActivity extends AppCompatActivity{
             System.out.println("Not enough Lutemons in battle");
         }
 
+        // This is the attack button
         btnAttack.setOnClickListener(v -> {
             if (isLutemonDownAttacking) {
                 lutemonDown.attack(lutemonUp);
@@ -85,6 +88,7 @@ public class BattleActivity extends AppCompatActivity{
             lutemonUp.updateStatusEffect();
         });
 
+        // This is the ability button
         btnAbility.setOnClickListener(v -> {
             if (isLutemonDownAttacking && !lutemonDownAbilityUsed) {
                 lutemonDown.useAbility(lutemonDown);
@@ -102,7 +106,7 @@ public class BattleActivity extends AppCompatActivity{
         });
     }
 
-    // Sets the lutemon's name, image and hpbar
+    // Sets the lutemon's name and hpbar
     private void startBattle() {
         textViewLutemonDownName.setText(lutemonDown.getName());
         textViewLutemonUpName.setText(lutemonUp.getName());
@@ -113,6 +117,7 @@ public class BattleActivity extends AppCompatActivity{
         updateUI();
     }
 
+    // This method checks if the battle is over
     private void checkBattleResult() {
         if (lutemonDown.getHealth() <= 0) {
             logBattle(lutemonDown.getName() + " has fainted!");
@@ -131,6 +136,7 @@ public class BattleActivity extends AppCompatActivity{
         }
     }
 
+    // This method ends the battle
     private void endBattle() {
         btnAttack.setEnabled(false);
         btnAbility.setEnabled(false);
@@ -138,11 +144,13 @@ public class BattleActivity extends AppCompatActivity{
         finish();
     }
 
+    // This method updates the UI
     private void updateUI() {
         hpBarLutemonDown.setProgress(lutemonDown.getHealth());
         hpBarLutemonUp.setProgress(lutemonUp.getHealth());
     }
 
+    // This method logs the battle
     private void logBattle(String msg) {
         textViewBattleLog.append(msg + "\n");
     }

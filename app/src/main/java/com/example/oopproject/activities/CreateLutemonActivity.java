@@ -50,6 +50,7 @@ public class CreateLutemonActivity extends AppCompatActivity {
         });
     }
 
+    // This method updates the ability description based on the selected Lutemon type
     private void updateAbilityDesc(int checkedId) {
         if (checkedId == R.id.radioButtonOrange) {
             textViewAbilityDesc.setText("Sunpower");
@@ -66,6 +67,7 @@ public class CreateLutemonActivity extends AppCompatActivity {
         }
     }
 
+    // This method creates a new Lutemon based on the selected type and name
     private void createLutemon() {
         String name = editTextName.getText().toString();
         if (name.isEmpty()) {

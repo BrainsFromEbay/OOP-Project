@@ -50,6 +50,7 @@ public class HomeActivity extends AppCompatActivity implements HomeAdapter.OnLut
             }
         });
 
+        // Move selected Lutemons to training or battle
         btnTraining.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,6 +58,7 @@ public class HomeActivity extends AppCompatActivity implements HomeAdapter.OnLut
             }
         });
 
+        // Move selected Lutemons to battle
         btnBattle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -72,18 +74,18 @@ public class HomeActivity extends AppCompatActivity implements HomeAdapter.OnLut
         adapter.updateLutemonList();
     }
 
+    // Handle Lutemon click events
     @Override
     public void onLutemonClick(int id) {
-        // Handle click on a Lutemon
         Lutemon lutemon = storage.getLutemon(id);
         if (lutemon != null) {
             Toast.makeText(this, "Selected: " + lutemon.getName(), Toast.LENGTH_SHORT).show();
         }
     }
 
+    // Store the selected state of the Lutemon
     @Override
     public void onLutemonSelected(int id, boolean isSelected) {
-        // Store the selected state of the Lutemon
         selectedLutemons.put(id, isSelected);
     }
 
